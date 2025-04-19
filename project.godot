@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Orcs vs Soldiers"
 config/version="1.0.0"
-run/main_scene="uid://h4t7mpvebdxq"
+run/main_scene="uid://uy28oxjgf4i3"
 config/features=PackedStringArray("4.4")
 
 [autoload]

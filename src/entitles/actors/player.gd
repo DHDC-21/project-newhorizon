@@ -45,7 +45,7 @@ func _physics_process(_delta: float) -> void:
 			#print("Player move to ", direction)
 			character_instance.move(direction)
 		else:
-			character_instance._char_animation.play("idle")
+			character_instance.does_not_move()
 		
 		if Input.is_action_just_pressed("normal_attack"):
 			#print("Player use normal attack!")

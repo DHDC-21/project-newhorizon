@@ -3,25 +3,17 @@ extends BaseCharacter
 var _suffix: String = "_01"
 
 func attack(_type_attack: String) -> void:
-		_is_attacking = true
-		
-		if _type_attack == "normal_attack":
-			_normal_attack()
-		if _type_attack == "special_attack":
-			_special_attack()
-		
-
-func _normal_attack() -> void:
-	if _suffix == "_01":
-		_suffix = "_02"
-		return
+	_is_attacking = true
 	
-	if _suffix == "_02":
-		_suffix = "_01"
-		
-	_char_animation.play("attack" + _suffix)
-	_char_attack_range.get_child(0).set_disabled(false)
-
+	if _type_attack == "normal_attack":
 	
-func _special_attack() -> void:
-	pass
+		if _suffix == "_02":
+			_suffix = "_01"
+		
+		else:
+			_suffix = "_02"
+			#return
+			
+		_char_animation.play("attack" + _suffix)
+		_char_attack_range.get_child(0).set_disabled(false)
+		

@@ -46,12 +46,15 @@ func move(direction: Vector2) -> void:
 			_char_animation.flip_h = false
 			_char_attack_range.position.x = 15
 
-		if _is_attacking:
+		if _is_attacking == true:
 			return
 			
 		_char_animation.play("walk")
 		
 	move_and_slide()
+	
+func does_not_move() -> void:
+	_char_animation.play("idle")
 
 
 func attack(_type_attack: String) -> void:
@@ -63,4 +66,4 @@ func _on_animation_finished() -> void:
 	if  _char_animation.animation.contains("attack"):
 		print("Terminou a animação de ataque!")
 		_is_attacking = false
-		_char_attack_range.get_child(true).set_disabled(true)
+		_char_attack_range.get_child(0).set_disabled(true)

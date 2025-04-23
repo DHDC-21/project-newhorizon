@@ -2,8 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bopq8mybkusxy" path="res://src/entitles/actors/player.gd" id="1_a7ywf"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="Node2D"]
 script = ExtResource("1_a7ywf")
-metadata/_custom_type_script = "uid://dmjf4yfmfc82k"
-
-[node name="Camera2D" type="Camera2D" parent="."]

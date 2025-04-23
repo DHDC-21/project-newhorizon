@@ -2,11 +2,23 @@
 
 [ext_resource type="Script" uid="uid://dmjf4yfmfc82k" path="res://src/entitles/base_character.gd" id="1_dxpj2"]
 
-[node name="BaseCharacter" type="Node2D"]
+[node name="BaseCharacter" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_dxpj2")
 
 [node name="CharAnimation" type="AnimatedSprite2D" parent="."]
 
-[node name="CharBody" type="CollisionShape2D" parent="."]
-
 [node name="CharBase" type="CollisionShape2D" parent="."]
+
+[node name="CharHitbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CharHitBox" type="CollisionShape2D" parent="CharHitbox"]
+
+[node name="CharAttackRange" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CharAttackRange" type="CollisionShape2D" parent="CharAttackRange"]

@@ -1,27 +1,76 @@
-[gd_scene load_steps=5 format=4 uid="uid://uy28oxjgf4i3"]
+[gd_scene load_steps=10 format=4 uid="uid://uy28oxjgf4i3"]
 
 [ext_resource type="Script" uid="uid://ck3yf0xcl4fb" path="res://src/scripts/level_01.gd" id="1_woasu"]
 [ext_resource type="Texture2D" uid="uid://d027scvodpjts" path="res://src/assets/tilesets/tilemaps.png" id="2_yl0tp"]
+[ext_resource type="Texture2D" uid="uid://cwoifqb0uumk3" path="res://src/assets/tilesets/black_and_white_tilemaps.png" id="3_gptp6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gptp6"]
 texture = ExtResource("2_yl0tp")
 texture_region_size = Vector2i(128, 127)
 1:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vat11"]
+texture = ExtResource("3_gptp6")
+texture_region_size = Vector2i(128, 64)
+2:2/size_in_atlas = Vector2i(1, 2)
+2:2/next_alternative_id = 2
+2:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_nb3px"]
 tile_shape = 1
 tile_layout = 5
 tile_size = Vector2i(128, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_gptp6")
+sources/1 = SubResource("TileSetAtlasSource_vat11")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfedk"]
+texture = ExtResource("3_gptp6")
+texture_region_size = Vector2i(128, 64)
+0:0/size_in_atlas = Vector2i(1, 4)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 96)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -32, -64, 0, -33, 15.5, 32.5, -16)
+1:0/size_in_atlas = Vector2i(1, 4)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 96)
+3:2/size_in_atlas = Vector2i(1, 2)
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, 32)
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 0, 0, -32, 64, 0, 0, 32, 0, 32)
+
+[sub_resource type="TileSet" id="TileSet_fuood"]
+tile_shape = 1
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(128, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+sources/1 = SubResource("TileSetAtlasSource_nfedk")
+
+[sub_resource type="TileSet" id="TileSet_gptp6"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(111, 64)
 
 [node name="Level01" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_woasu")
 
 [node name="World" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
 
 [node name="Ground" type="TileMapLayer" parent="World"]
-tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAAAAAEAAAABAAEAAAABAAEAAAABAAEAAAABAAAAAAABAAEAAAABAP//AAABAAEAAAD//wEAAAABAAEAAAACAAEAAAABAAEAAAACAAAAAAABAAEAAAACAP//AAABAAEAAAACAP7/AAABAAEAAAABAP7/AAABAAEAAAAAAP7/AAABAAEAAAD///7/AAABAAEAAAD+//7/AAABAAEAAAD+////AAABAAEAAAD+/wAAAAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AQACAAIAAAAAAAAAAQACAAIAAAD/////AQACAAIAAAD//wAAAQACAAIAAAAAAAEAAQACAAIAAAABAAEAAQACAAIAAAABAAAAAQACAAIAAAABAP//AQACAAIAAAD//wEAAQACAAIAAAACAAEAAQACAAIAAAACAAAAAQACAAIAAAACAP//AQACAAIAAAACAP7/AQACAAIAAAABAP7/AQACAAIAAAAAAP7/AQACAAIAAAD///7/AQACAAIAAAD+//7/AQACAAIAAAD+////AQACAAIAAAD+/wAAAQACAAIAAAD+/wEAAQACAAIAAAD+/wIAAQACAAIAAAD//wIAAQACAAIAAAAAAAIAAQACAAIAAAABAAIAAQACAAIAAAACAAIAAQACAAIAAAD8//v/AQACAAIAAAD8//z/AQACAAIAAAD8//3/AQACAAIAAAD8//7/AQACAAIAAAD8////AQACAAIAAAD8/wAAAQACAAIAAAD8/wEAAQACAAIAAAD8/wIAAQACAAIAAAD8/wMAAQACAAIAAAD9//v/AQACAAIAAAD9//z/AQACAAIAAAD9//3/AQACAAIAAAD9//7/AQACAAIAAAD9////AQACAAIAAAD9/wAAAQACAAIAAAD9/wEAAQACAAIAAAD9/wIAAQACAAIAAAD9/wMAAQACAAIAAAD+//v/AQACAAIAAAD+//z/AQACAAIAAAD+//3/AQACAAIAAAD+/wMAAQACAAIAAAD///v/AQACAAIAAAD///z/AQACAAIAAAD///3/AQACAAIAAAD//wMAAQACAAIAAAAAAPv/AQACAAIAAAAAAPz/AQACAAIAAAAAAP3/AQACAAIAAAAAAAMAAQACAAIAAAABAPv/AQACAAIAAAABAPz/AQACAAIAAAABAP3/AQACAAIAAAABAAMAAQACAAIAAAACAPv/AQACAAIAAAACAPz/AQACAAIAAAACAP3/AQACAAIAAAACAAMAAQACAAIAAAADAPv/AQACAAIAAAADAPz/AQACAAIAAAADAP3/AQACAAIAAAADAP7/AQACAAIAAAADAP//AQACAAIAAAADAAAAAQACAAIAAAADAAEAAQACAAIAAAADAAIAAQACAAIAAAADAAMAAQACAAIAAAAEAPv/AQACAAIAAAAEAPz/AQACAAIAAAAEAP3/AQACAAIAAAAEAP7/AQACAAIAAAAEAP//AQACAAIAAAAEAAAAAQACAAIAAAAEAAEAAQACAAIAAAAEAAIAAQACAAIAAAAEAAMAAQACAAIAAAA=")
 tile_set = SubResource("TileSet_nb3px")
+
+[node name="Objects" type="TileMapLayer" parent="World"]
+tile_map_data = PackedByteArray("AAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD8//z/AQAAAAAAAAD8//v/AQAAAAAAAAAFAPz/AQAAAAAAAAAFAP3/AQAAAAAAAAAFAP7/AQAAAAAAAAAFAP//AQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAPv/AQAAAAAAAAD8/wMAAQAAAAAAAAD8/wQAAQADAAIAAAD9/wQAAQADAAIAAAD+/wQAAQADAAIAAAD//wQAAQADAAIAAAAAAAQAAQADAAIAAAABAAQAAQADAAIAAAACAAQAAQADAAIAAAADAAQAAQADAAIAAAAEAAQAAQADAAIAAAAFAAQAAQADAAIAAAAFAPr/AQADAAIAAAAEAPr/AQADAAIAAAADAPr/AQADAAIAAAACAPr/AQADAAIAAAABAPr/AQADAAIAAAAAAPr/AQADAAIAAAD///r/AQADAAIAAAD+//r/AQADAAIAAAD9//r/AQADAAIAAAD8//r/AQADAAIAAAD///3/AQADAAIAAAA=")
+tile_set = SubResource("TileSet_fuood")
+y_sort_origin = 1
+
+[node name="Teste" type="TileMapLayer" parent="World"]
+tile_set = SubResource("TileSet_gptp6")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]

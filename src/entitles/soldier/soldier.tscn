@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b56usah81xp7j"]
+[gd_scene load_steps=56 format=3 uid="uid://b56usah81xp7j"]
 
 [ext_resource type="Script" uid="uid://dmjf4yfmfc82k" path="res://src/entitles/base_character.gd" id="1_3pwie"]
 [ext_resource type="Texture2D" uid="uid://rkh6h2ejbfko" path="res://src/entitles/soldier/sprites/Soldier-Attack01.png" id="2_1gn7a"]
@@ -355,24 +355,34 @@ size = Vector2(12, 19)
 radius = 2.0
 height = 12.0
 
-[node name="Soldier" type="Node2D" node_paths=PackedStringArray("_char_animation", "_char_body", "_char_base")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gn7a"]
+
+[node name="Soldier" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_3pwie")
-_move_speed = 75.0
-_char_animation = NodePath("CharAnimation")
-_char_body = NodePath("CharBody")
-_char_base = NodePath("CharBase")
 metadata/_custom_type_script = "uid://dmjf4yfmfc82k"
 
 [node name="CharAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7h7v8")
-animation = &"walk"
+animation = &"attack_01"
 autoplay = "idle"
+frame = 3
 offset = Vector2(-0.5, -7.5)
 
-[node name="CharBody" type="CollisionShape2D" parent="."]
+[node name="CharBase2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_mmro1")
 
-[node name="CharBase" type="CollisionShape2D" parent="."]
+[node name="CharHitbox" type="Area2D" parent="."]
+
+[node name="CharHitbox" type="CollisionShape2D" parent="CharHitbox"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gcpd8")
+
+[node name="CharAttackRange" type="Area2D" parent="."]
+
+[node name="CharAtackRange" type="CollisionShape2D" parent="CharAttackRange"]
+position = Vector2(11, -11)
+shape = SubResource("CircleShape2D_1gn7a")
+disabled = true

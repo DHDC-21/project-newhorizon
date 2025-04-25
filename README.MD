@@ -26,7 +26,7 @@ N/a
 
 ### 1.5. Visão geral do jogo
 
-Orcs e soldados batalham para se tornarem vitoriosos em uma gerra sem fim. Escolha qual lada você quer jogar e tente chegar o mais loge que puder.
+Orcs e soldados batalham para se tornarem vitoriosos em uma gerra sem fim. Escolha qual lado você quer jogar e tente chegar o mais loge que puder.
 
 ## 2. Conclusão
 
@@ -38,14 +38,17 @@ Esse é um projeto pessoal com fins de didaticos, meu objetivo é desenvolver um
 
 ### 2.2. O que ja temos pronto
 
-* Diagrama de classes
+* Diagrama de classes para ajudar na organização do código e desenvolvimento do projeto
 * Joystick virtual para versões sensiveis ao toque (Android/ Mobile)
-* Seleção de personagens (Orc ou Soldado)
+* Sistema de seleção de personagens e instânciação dinâmica do *player* e *enemy*
+* Lógica basica para acionar a movimentação e o ataque dos personagens Orcs e Soldados
+* O jogador consegue controlar o personagem escolhido
+* O inimigo instanciado ataca e segue o jogador
 
 ### 2.3. Próximos passos
-
-* Terminar a lógica de movimentação e combate dos orcs e soldados como *player*
-* Fazer a logica de movimentação e combate dos orcs e soldados como inimigos
+* Fazer o *special_attack* do personagem soldado.
+* Fazer o sistema de dano e morte
+* Fazer o sistema de experiência (exp)
 * Fazer o *level design*
 * Construir o menu principal
 * Construir o menu de opções

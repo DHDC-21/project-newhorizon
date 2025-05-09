@@ -12,13 +12,18 @@ script = ExtResource("1_dxpj2")
 [node name="CharBase" type="CollisionShape2D" parent="."]
 
 [node name="CharHitbox" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 64
+collision_layer = 0
+collision_mask = 0
 
 [node name="CharHitBox" type="CollisionShape2D" parent="CharHitbox"]
 
 [node name="CharAttackRange" type="Area2D" parent="."]
-collision_layer = 64
+collision_layer = 0
 collision_mask = 64
 
 [node name="CharAttackRange" type="CollisionShape2D" parent="CharAttackRange"]
+
+[node name="AttackCooldownTimer" type="Timer" parent="CharAttackRange"]
+
+[node name="SpecialCooldownTimer" type="Timer" parent="CharAttackRange"]
+one_shot = true

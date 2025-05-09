@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="UI.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.415625"
+     inkscape:cx="406.61654"
+     inkscape:cy="654.43609"
+     inkscape:window-width="1920"
+     inkscape:window-height="1029"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer5">
+    <inkscape:grid
+       type="xygrid"
+       id="grid132"
+       spacingx="64"
+       spacingy="64"
+       empspacing="2" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Others" />
+  <g
+     inkscape:label="button_jump"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <ellipse
+       style="fill:none;stroke:#ffffff;stroke-width:15.1972;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path257"
+       cx="319.98175"
+       cy="63.372337"
+       rx="56.323582"
+       ry="56.401405"
+       inkscape:export-filename="../virtual_joystick/button_jump.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:label="button_jump" />
+    <path
+       id="path2505"
+       style="fill:#999999;stroke:#ffffff;stroke-width:6.66667;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 319.90393,34.927902 291.45948,63.37234 h 14.22222 v 28.444446 h 28.44446 V 63.37234 h 14.22222 z"
+       inkscape:label="button_jump" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="button_jump_pressed"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <ellipse
+       style="fill:#333333;stroke:#999999;stroke-width:15.1972;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="ellipse2373"
+       cx="319.98175"
+       cy="191.37234"
+       rx="56.323582"
+       ry="56.401405"
+       inkscape:export-filename="../virtual_joystick/button_jump_pressed.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       inkscape:label="button_jump_pressed" />
+    <path
+       id="path2510"
+       style="fill:#000000;stroke:#999999;stroke-width:6.66667;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 319.98175,162.92783 -28.44445,28.44444 h 14.22222 v 28.44444 h 28.44446 v -28.44444 h 14.22222 z"
+       inkscape:label="button_jump_pressed" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="button"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <ellipse
+       style="fill:none;stroke:#ffffff;stroke-width:15.1972;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="ellipse2375"
+       cx="191.98177"
+       cy="63.372341"
+       rx="56.323582"
+       ry="56.401405"
+       inkscape:label="button"
+       inkscape:export-filename="../virtual_joystick/button.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="button_pressed"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <ellipse
+       style="display:inline;fill:#333333;stroke:#999999;stroke-width:15.1972;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="ellipse2377"
+       cx="191.98175"
+       cy="191.37234"
+       rx="56.323582"
+       ry="56.401405"
+       inkscape:label="button_pressed"
+       inkscape:export-filename="../virtual_joystick/button_pressed.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>

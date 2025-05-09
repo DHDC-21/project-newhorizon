@@ -1,12 +1,12 @@
 [gd_scene load_steps=46 format=3 uid="uid://j1dqs2nab4ti"]
 
 [ext_resource type="Script" uid="uid://7ap2o8tdc4m4" path="res://src/entitles/orc/orc.gd" id="1_kia8v"]
-[ext_resource type="Texture2D" uid="uid://chvud15aqkqv4" path="res://src/entitles/orc/sprites/Orc-Attack01.png" id="2_1ytdh"]
-[ext_resource type="Texture2D" uid="uid://c7plss71nbp4p" path="res://src/entitles/orc/sprites/Orc-Attack02.png" id="3_7xdym"]
-[ext_resource type="Texture2D" uid="uid://d4flo5gncmiql" path="res://src/entitles/orc/sprites/Orc-Death.png" id="4_kia8v"]
-[ext_resource type="Texture2D" uid="uid://bkr6bhvvaejgn" path="res://src/entitles/orc/sprites/Orc-Idle.png" id="5_6t5om"]
-[ext_resource type="Texture2D" uid="uid://byvkaaadow26w" path="res://src/entitles/orc/sprites/Orc-Hurt.png" id="5_kia8v"]
-[ext_resource type="Texture2D" uid="uid://dw07bigbnoynv" path="res://src/entitles/orc/sprites/Orc-Walk.png" id="7_6t5om"]
+[ext_resource type="Texture2D" uid="uid://chvud15aqkqv4" path="res://src/assets/sprites/orc/Orc-Attack01.png" id="2_1ytdh"]
+[ext_resource type="Texture2D" uid="uid://c7plss71nbp4p" path="res://src/assets/sprites/orc/Orc-Attack02.png" id="3_7xdym"]
+[ext_resource type="Texture2D" uid="uid://d4flo5gncmiql" path="res://src/assets/sprites/orc/Orc-Death.png" id="4_kia8v"]
+[ext_resource type="Texture2D" uid="uid://bkr6bhvvaejgn" path="res://src/assets/sprites/orc/Orc-Idle.png" id="5_6t5om"]
+[ext_resource type="Texture2D" uid="uid://byvkaaadow26w" path="res://src/assets/sprites/orc/Orc-Hurt.png" id="5_kia8v"]
+[ext_resource type="Texture2D" uid="uid://dw07bigbnoynv" path="res://src/assets/sprites/orc/Orc-Walk.png" id="7_6t5om"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbxw3"]
 atlas = ExtResource("2_1ytdh")
@@ -297,14 +297,18 @@ metadata/_custom_type_script = "uid://dmjf4yfmfc82k"
 [node name="CharAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, -7.5)
 sprite_frames = SubResource("SpriteFrames_cqcmv")
-animation = &"attack_01"
+animation = &"hurt"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="CharBase" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_6t5om")
 
 [node name="CharHitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CharHitbox" type="CollisionShape2D" parent="CharHitbox"]
 position = Vector2(0, -8)
@@ -312,9 +316,17 @@ shape = SubResource("RectangleShape2D_kia8v")
 
 [node name="CharAttackRange" type="Area2D" parent="."]
 position = Vector2(15, -9)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CharAttackRange" type="CollisionShape2D" parent="CharAttackRange"]
 shape = SubResource("CircleShape2D_kia8v")
 disabled = true
 
+[node name="AttackCooldownTimer" type="Timer" parent="CharAttackRange"]
+
+[node name="SpecialCooldownTimer" type="Timer" parent="CharAttackRange"]
+one_shot = true
+
 [connection signal="animation_finished" from="CharAnimation" to="." method="_on_animation_finished"]
+[connection signal="body_entered" from="CharAttackRange" to="." method="_on_char_attack_range_body_entered"]

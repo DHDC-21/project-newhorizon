@@ -1,13 +1,13 @@
 [gd_scene load_steps=56 format=3 uid="uid://b56usah81xp7j"]
 
 [ext_resource type="Script" uid="uid://45xchivbc2qx" path="res://src/entitles/soldier/soldier.gd" id="1_1gn7a"]
-[ext_resource type="Texture2D" uid="uid://rkh6h2ejbfko" path="res://src/entitles/soldier/sprites/Soldier-Attack01.png" id="2_1gn7a"]
-[ext_resource type="Texture2D" uid="uid://bhb8vfarbhdft" path="res://src/entitles/soldier/sprites/Soldier-Attack02.png" id="3_t23lp"]
-[ext_resource type="Texture2D" uid="uid://da4w1kh480xnj" path="res://src/entitles/soldier/sprites/Soldier-Attack03.png" id="4_cahl2"]
-[ext_resource type="Texture2D" uid="uid://bn4pbsj5ro3l8" path="res://src/entitles/soldier/sprites/Soldier-Death.png" id="5_dxa2l"]
-[ext_resource type="Texture2D" uid="uid://blgfn3qohote3" path="res://src/entitles/soldier/sprites/Soldier-Hurt.png" id="6_n5rdm"]
-[ext_resource type="Texture2D" uid="uid://lmqvt61bp7xm" path="res://src/entitles/soldier/sprites/Soldier-Idle.png" id="7_wyux4"]
-[ext_resource type="Texture2D" uid="uid://d37ebi4bi4tpx" path="res://src/entitles/soldier/sprites/Soldier-Walk.png" id="8_1dxd3"]
+[ext_resource type="Texture2D" uid="uid://rkh6h2ejbfko" path="res://src/assets/sprites/soldier/Soldier-Attack01.png" id="2_1gn7a"]
+[ext_resource type="Texture2D" uid="uid://bhb8vfarbhdft" path="res://src/assets/sprites/soldier/Soldier-Attack02.png" id="3_t23lp"]
+[ext_resource type="Texture2D" uid="uid://da4w1kh480xnj" path="res://src/assets/sprites/soldier/Soldier-Attack03.png" id="4_cahl2"]
+[ext_resource type="Texture2D" uid="uid://bn4pbsj5ro3l8" path="res://src/assets/sprites/soldier/Soldier-Death.png" id="5_dxa2l"]
+[ext_resource type="Texture2D" uid="uid://blgfn3qohote3" path="res://src/assets/sprites/soldier/Soldier-Hurt.png" id="6_n5rdm"]
+[ext_resource type="Texture2D" uid="uid://lmqvt61bp7xm" path="res://src/assets/sprites/soldier/Soldier-Idle.png" id="7_wyux4"]
+[ext_resource type="Texture2D" uid="uid://d37ebi4bi4tpx" path="res://src/assets/sprites/soldier/Soldier-Walk.png" id="8_1dxd3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r11vp"]
 atlas = ExtResource("2_1gn7a")
@@ -348,12 +348,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmro1"]
-size = Vector2(12, 19)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gcpd8"]
 radius = 2.0
 height = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmro1"]
+size = Vector2(12, 19)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1gn7a"]
 
@@ -370,21 +370,32 @@ autoplay = "idle"
 frame = 3
 offset = Vector2(-0.5, -7.5)
 
-[node name="CharBase2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_mmro1")
-
-[node name="CharHitbox" type="Area2D" parent="."]
-
-[node name="CharHitbox" type="CollisionShape2D" parent="CharHitbox"]
+[node name="CharBase" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gcpd8")
 
+[node name="CharHitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CharHitbox" type="CollisionShape2D" parent="CharHitbox"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_mmro1")
+
 [node name="CharAttackRange" type="Area2D" parent="."]
 position = Vector2(11, -11)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CharAtackRange" type="CollisionShape2D" parent="CharAttackRange"]
 shape = SubResource("CircleShape2D_1gn7a")
 disabled = true
 
+[node name="AttackCooldownTimer" type="Timer" parent="CharAttackRange"]
+one_shot = true
+
+[node name="SpecialCooldownTimer" type="Timer" parent="CharAttackRange"]
+one_shot = true
+
 [connection signal="animation_finished" from="CharAnimation" to="." method="_on_animation_finished"]
+[connection signal="body_entered" from="CharAttackRange" to="." method="_on_char_attack_range_body_entered"]

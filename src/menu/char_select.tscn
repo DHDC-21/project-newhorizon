@@ -1,6 +1,108 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5843ladfprn4"]
+[gd_scene load_steps=18 format=3 uid="uid://c5843ladfprn4"]
 
 [ext_resource type="Script" uid="uid://h1w51b0bq347" path="res://src/scripts/char_select.gd" id="1_cyjgt"]
+[ext_resource type="Texture2D" uid="uid://bkr6bhvvaejgn" path="res://src/assets/sprites/orc/Orc-Idle.png" id="2_scad6"]
+[ext_resource type="Texture2D" uid="uid://lmqvt61bp7xm" path="res://src/assets/sprites/soldier/Soldier-Idle.png" id="3_o6rpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6rpr"]
+atlas = ExtResource("2_scad6")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0crn"]
+atlas = ExtResource("2_scad6")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmtgk"]
+atlas = ExtResource("2_scad6")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evsku"]
+atlas = ExtResource("2_scad6")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tea20"]
+atlas = ExtResource("2_scad6")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6eg4"]
+atlas = ExtResource("2_scad6")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xs3wk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6rpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0crn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmtgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evsku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tea20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6eg4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs3wk"]
+atlas = ExtResource("3_o6rpr")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2tse"]
+atlas = ExtResource("3_o6rpr")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16a44"]
+atlas = ExtResource("3_o6rpr")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mteac"]
+atlas = ExtResource("3_o6rpr")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l7gy"]
+atlas = ExtResource("3_o6rpr")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by8m1"]
+atlas = ExtResource("3_o6rpr")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ymq2y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs3wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2tse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16a44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mteac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l7gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by8m1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="CharSelect" type="Control"]
 layout_mode = 3
@@ -11,25 +113,60 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cyjgt")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select your character:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 alignment = 1
 
-[node name="BtnSelectOrc" type="Button" parent="HBoxContainer"]
+[node name="Orc" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BtnSelectOrc" type="Button" parent="VBoxContainer/HBoxContainer/Orc"]
 layout_mode = 2
 text = "Orc"
 
-[node name="BtnSelectSoldier" type="Button" parent="HBoxContainer"]
+[node name="OrcSprite" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/Orc"]
+position = Vector2(18, -29)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xs3wk")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Or"
+
+[node name="Soldier" type="GridContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BtnSelectSoldier" type="Button" parent="VBoxContainer/HBoxContainer/Soldier"]
 layout_mode = 2
 text = "Soldier"
 
-[connection signal="pressed" from="HBoxContainer/BtnSelectOrc" to="." method="_on_btn_select_orc_pressed"]
-[connection signal="pressed" from="HBoxContainer/BtnSelectSoldier" to="." method="_on_btn_select_soldier_pressed"]
+[node name="SoldierSprite" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/Soldier"]
+position = Vector2(28, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ymq2y")
+autoplay = "default"
+flip_h = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Orc/BtnSelectOrc" to="." method="_on_btn_select_orc_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Soldier/BtnSelectSoldier" to="." method="_on_btn_select_soldier_pressed"]

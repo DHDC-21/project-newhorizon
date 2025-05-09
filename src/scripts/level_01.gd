@@ -2,10 +2,10 @@ extends Node
 
 
 @onready var player_spawn = get_node("PlayerSpawn")
-var player_scene = preload("res://src/entitles/actors/player.tscn")
+var player_scene = preload("res://src/actors/player.tscn")
 
 @onready var enemy_spawn = get_node("EnemySpawn")
-var enemy_scene = preload("res://src/entitles/actors/enemy.tscn")
+var enemy_scene = preload("res://src/actors/enemy.tscn")
 
 func _ready() -> void:
 	var player_instance = player_scene.instantiate()

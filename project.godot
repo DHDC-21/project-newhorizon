@@ -76,19 +76,12 @@ pointing/emulate_mouse_from_touch=false
 
 [layer_names]
 
-2d_render/layer_1="Ground"
-2d_render/layer_2="GroundDetails"
-2d_render/layer_3="Characters"
-2d_render/layer_4="ObjectsInterior"
-2d_physics/layer_1="Terrain"
-2d_physics/layer_2="PlayerBase"
-2d_physics/layer_3="EnemyBase"
-2d_physics/layer_4="PlayerHitbox"
-2d_physics/layer_5="EnemyHitbox"
-2d_physics/layer_6="PlayerAttack"
-2d_physics/layer_7="EnemyAttack"
-2d_physics/layer_8="Projectiles"
-2d_physics/layer_9="Items"
+2d_physics/layer_1="Default"
+2d_physics/layer_2="Terrain"
+2d_physics/layer_3="Objects"
+2d_physics/layer_4="Player"
+2d_physics/layer_5="Enemy"
+2d_physics/layer_6="Items"
 
 [rendering]
 
